@@ -18,7 +18,7 @@ def argument_parse_gradunwarp():
     '''Arguments parser from the command line
     '''
     # initiate
-    p = arg.ArgumentParser(version=globals.VERSION, usage=globals.usage)
+    p = arg.ArgumentParser(usage=globals.usage)
 
     # required arguments
     p.add_argument('infile', action='store',
@@ -35,6 +35,7 @@ def argument_parse_gradunwarp():
                          help='The .coef coefficient file')
 
     # optional arguments
+    p.add_argument('--version', action='version', version=globals.VERSION)
     p.add_argument('-w', '--warp', action='store_true', default=False,
                   help='warp a volume (as opposed to unwarping)')
     p.add_argument('-n', '--nojacobian', dest='nojac', action='store_true',
